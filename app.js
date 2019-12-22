@@ -16,7 +16,7 @@ const path = require("path");
 
 var client_id = "88172624988a4498a01fad04add49e2d"; // Your client id
 var client_secret = "e81500717cba4b69864ea3f24ed2e03d"; // Your secret
-var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
+var redirect_uri = "https://spotadoot.herokuapp.com/callback"; // Your redirect uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -121,7 +121,7 @@ app.get("/callback", function(req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "http://localhost:8888/#" +
+          "https://spotadoot.herokuapp.com/#" +
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token
