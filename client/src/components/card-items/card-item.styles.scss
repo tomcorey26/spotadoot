@@ -1,0 +1,16 @@
+$secondary-color: #ff6b6c;
+$yellow-color: #ffc145;
+.play-button {
+  position: absolute;
+  padding: 20px;
+  background: $secondary-color;
+  color: white;
+  text-align: center;
+  bottom: 87px;
+  left: 44px;
+  border-radius: 50%;
+}
+
+.play-button:hover {
+  cursor: pointer;
+}

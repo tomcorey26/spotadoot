@@ -1,0 +1,30 @@
+As a user I can
+
+Find out how to dispatch state of spotify api
+after it is initialized
+
+Pages
+User DashBoard
+Home Page
+  Recently Played 
+  Suggestions
+  What freinds are listening to
+
+View suggested music based off of my listening history
+Create new playlists that are a mix of mine and my friends
+make playlists with top songs of selected artists
+i.e select post malone, young thug, juice world and playlist with all ther
+top songs is created
+
+get my top songs
+
+time how long i want my music to play for
+Have it switch from music types after certain amount of time
+search for
+
+cycle between playlists 
+
+see a chart for my stats (time listened, who I listen to the most)
+
+use AudD to help find the music people are looking for
+
