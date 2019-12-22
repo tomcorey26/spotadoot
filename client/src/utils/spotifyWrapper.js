@@ -16,6 +16,7 @@ export const getHashParams = () => {
 
 const params = getHashParams();
 if (params.access_token) {
+  console.log("access token");
   //have better checker so website doesnt crash
   //when someone puts text in params query
   spotifyApi.setAccessToken(params.access_token);

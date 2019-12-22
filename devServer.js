@@ -18,12 +18,12 @@ var client_id = "88172624988a4498a01fad04add49e2d"; // Your client id
 var client_secret = "e81500717cba4b69864ea3f24ed2e03d"; // Your secret
 
 //DEPLOY CHANGE THIS
-var redirect_uri = "https://spotadoot.herokuapp.com/callback"; // Your redirect uri
-// var redirect_uri = "http://localhost:8888/callback";
+// var redirect_uri = "https://spotadoot.herokuapp.com/callback"; // Your redirect uri
+var redirect_uri = "http://localhost:8888/callback";
 
 //redirect after authentication
-// var redirect_url = "http://localhost:8888/";
-var redirect_url = "https://spotadoot.herokuapp.com/#";
+var redirect_url = "http://localhost:3000/#";
+// var redirect_url = "https://spotadoot.herokuapp.com/
 
 /**
  * Generates a random string containing numbers and letters
@@ -45,19 +45,19 @@ var stateKey = "spotify_auth_state";
 
 var app = express();
 
-app
-  .use(express.static(path.join(__dirname, "client/build")))
-  .use(cors())
-  .use(cookieParser());
-
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
-
 // app
-//   .use(express.static(__dirname + "/public"))
+//   .use(express.static(path.join(__dirname, "client/build")))
 //   .use(cors())
 //   .use(cookieParser());
+
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "client/build/index.html"));
+// });
+
+app
+  .use(express.static(__dirname + "/public"))
+  .use(cors())
+  .use(cookieParser());
 
 app.get("/login", function(req, res) {
   var state = generateRandomString(16);
@@ -173,9 +173,9 @@ app.get("/refresh_token", function(req, res) {
   });
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "client/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "client/build/index.html"));
+// });
 
 console.log("Listening on 8888");
 app.listen(process.env.PORT || 8888);
