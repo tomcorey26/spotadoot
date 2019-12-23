@@ -6,7 +6,6 @@ import SongList from "../song-list/song-list.component";
 import Container from "@material-ui/core/Container";
 
 //global spotify object
-import connectToSpotify from "../../utils/spotifyConnect";
 import Spotify from "spotify-web-api-js";
 export const spotifyApi = new Spotify();
 
@@ -19,9 +18,10 @@ class BrowseMusicDisplay extends React.Component {
   componentDidMount() {
     const { fetchMusicDisplay } = this.props;
     this.setAccessToken(spotifyApi)
-      .then(token => {
-        connectToSpotify(token);
+      .then(() => {
         fetchMusicDisplay();
+      })
+      .then(() => {
         this.setState({ isLoading: false });
       })
       .catch(err => {
@@ -44,6 +44,7 @@ class BrowseMusicDisplay extends React.Component {
     //token is already stored
     let storedToken = window.localStorage.getItem("refreshToken");
     if (storedToken) {
+      //DEPLOY CHANGE TO window.location.origin
       let request_url =
         "http://localhost:8888" + "/refresh_token?refresh_token=" + storedToken;
       let request_token = await fetch(request_url);
