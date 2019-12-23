@@ -1,26 +1,37 @@
-.lg-container {
-  max-width: 1280px;
-}
 .browse-music-display {
   display: flex;
-}
-.main-browse-content {
-  width: 803px;
-  border: 1px solid black;
-  background: #fffffb;
+
+  .main-browse-content {
+    width: 803px;
+    background: #fffffb;
+  }
+
+  .sidebar-browse-content {
+    width: 409px;
+    border: 1px solid black;
+    background: #fffffb;
+  }
 }
 
-.sidebar-browse-content {
-  width: 409px;
-  border: 1px solid black;
-  background: #fffffb;
+.loading {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+
+  .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  }
 }
 
 @media (max-width: 1280px) {
   .browse-music-display {
     flex-direction: column;
   }
-  .sidebar-browse-content {
+  .browse-music-display .sidebar-browse-content {
     width: 803px;
   }
   .App {

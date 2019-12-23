@@ -1,5 +1,6 @@
 import React from "react";
 import "./browse-music-display.styles.scss";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 //components
 import SongList from "../song-list/song-list.component";
@@ -69,21 +70,30 @@ class BrowseMusicDisplay extends React.Component {
   render() {
     const { topSongs, newReleases, featuredPlaylists } = this.props;
     return (
-      <Container maxWidth="lg">
-        {this.state.isLoading && <div>Loading...</div>}
-        {!this.state.isLoading && (
-          <div className="browse-music-display">
-            <div className="main-browse-content">
-              <SongList title="New Releases" songs={newReleases} />
-              <SongList title="Featured Playlists" songs={featuredPlaylists} />
-              <SongList title="Your Top Songs" songs={topSongs} />
+      <div className="foo">
+        <div className="browse-music-display">
+          {this.state.isLoading && (
+            <div className="loading">
+              <CircularProgress className="spinner" />
             </div>
-            <div className="sidebar-browse-content">
-              <h1>Side bar</h1>
-            </div>
-          </div>
-        )}
-      </Container>
+          )}
+          {!this.state.isLoading && (
+            <React.Fragment>
+              <div className="main-browse-content">
+                <SongList title="New Releases" songs={newReleases} />
+                <SongList
+                  title="Featured Playlists"
+                  songs={featuredPlaylists}
+                />
+                <SongList title="Your Top Songs" songs={topSongs} />
+              </div>
+              <div className="sidebar-browse-content">
+                <h1>Side bar</h1>
+              </div>
+            </React.Fragment>
+          )}
+        </div>
+      </div>
     );
   }
 }

@@ -3,6 +3,8 @@ $grey: #eeeeee;
 
 .App {
   background: $grey;
+  display: flex;
+  justify-content: center;
 }
 html {
   font-family: "Roboto", sans-serif;
