@@ -17,7 +17,6 @@ const path = require("path");
 var client_id = "88172624988a4498a01fad04add49e2d"; // Your client id
 var client_secret = "e81500717cba4b69864ea3f24ed2e03d"; // Your secret
 
-//DEPLOY CHANGE THIS
 var redirect_uri = "https://spotadoot.herokuapp.com/callback"; // Your redirect uri
 // var redirect_uri = "http://localhost:8888/callback";
 

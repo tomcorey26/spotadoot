@@ -1,9 +1,8 @@
-[] fix problem where it redirects you back to homepage everytime you change page
 [] re direct un authenticated users from pages that require auth
+[] fix problem where it redirects you back to homepage everytime you change page
 [] have modal that doesnt go away until user connects with spotify
 [] recall refresh token when auth token runs out
 [] create instruction gif for how to connect from spotify app
 [] Add music control footer functionality 
 [] Search functionality
 [] Add to playlist functionality (with a popup modal like soundcloud)
-[] chache api calls

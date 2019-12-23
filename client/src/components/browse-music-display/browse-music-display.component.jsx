@@ -42,26 +42,36 @@ class BrowseMusicDisplay extends React.Component {
   };
 
   setAccessToken = async spotifyApi => {
-    //token is already stored
+    //if token is already stored
     let storedToken = window.localStorage.getItem("refreshToken");
     if (storedToken) {
-      //DEPLOY CHANGE TO window.location.origin
-      let request_url =
-        "http://localhost:8888" + "/refresh_token?refresh_token=" + storedToken;
-      let request_token = await fetch(request_url);
-      let token = await request_token.json();
+      let token = await this.requestNewAccessToken(storedToken);
       spotifyApi.setAccessToken(token.access_token);
       window.localStorage.setItem("accessToken", token.access_token);
-      window.history.pushState({}, "", "/");
+      // window.history.pushState({}, "", "/");
       return token.access_token;
     }
 
     //user must autheticate if not stored
+    let token = this.getTokenFromParams(spotifyApi);
+
+    return token;
+  };
+
+  requestNewAccessToken = async storedToken => {
+    let request_url =
+      window.location.origin + "/refresh_token?refresh_token=" + storedToken;
+    let request_token = await fetch(request_url);
+    return await request_token.json();
+  };
+
+  getTokenFromParams = spotifyApi => {
     const params = this.getHashParams();
     if (params.access_token) {
       spotifyApi.setAccessToken(params.access_token);
       window.localStorage.setItem("refreshToken", params.refresh_token);
       window.localStorage.setItem("accessToken", params.access_token);
+      //clear tokens from url
       window.history.pushState({}, "", "/");
     }
     return params.access_token;
