@@ -1,5 +1,5 @@
 import { musicPlayerActionTypes } from "./musicPlayer.types";
-import { spotifyApi } from "../../utils/spotifyWrapper";
+import { spotifyApi } from "../../utils/spotifyConnect";
 
 export const playSong = song => ({
   type: musicPlayerActionTypes.PLAY_SONG,

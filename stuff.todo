@@ -1,0 +1,7 @@
+[] re direct un authenticated users from pages that require auth
+[] recall refresh token when auth token runs out
+[] create instruction gif for how to connect from spotify app
+[] Add music control footer functionality 
+[] Search functionality
+[] Add to playlist functionality (with a popup modal like soundcloud)
+[] chache api calls

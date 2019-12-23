@@ -1,0 +1,5 @@
+"npm run dev" to run the development server
+the url must have a # at the end of the last / for the gethashparams function
+(ex http://localhost:3000/#)
+
+Have to connect through spotify app to play music through web application

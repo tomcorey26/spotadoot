@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../card-item.styles.scss";
 
-import { spotifyApi } from "../../../utils/spotifyWrapper";
+import { spotifyApi } from "../../../components/browse-music-display/browse-music-display.component";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";

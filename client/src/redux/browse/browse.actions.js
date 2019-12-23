@@ -1,5 +1,5 @@
 import { browseActionTypes } from "./browse.types";
-import { spotifyApi } from "../../utils/spotifyWrapper";
+import { spotifyApi } from "../../components/browse-music-display/browse-music-display.component";
 
 //create one big action that fetches all of these
 export const fetchMusicDisplay = () => {
