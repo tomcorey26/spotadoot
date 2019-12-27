@@ -1,5 +1,4 @@
 import TrackItem from "./track-item.component";
-//redux
 import { connect } from "react-redux";
 import {
   playSong,

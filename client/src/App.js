@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Switch, Route } from "react-router-dom";
+import PrivateRoute from "./components/privateRoute/privateRoute";
 import { connect } from "react-redux";
 import "./App.scss";
 
@@ -12,26 +14,28 @@ import { createStructuredSelector } from "reselect";
 import AudioPlayer from "./components/audioPlayer/audioPlayer.component";
 //pages
 import BrowseMusicDisplay from "./components/browse-music-display/redux";
-// import HomePage from "./pages/homepage/homepage.component";
+import HomePage from "./pages/homepage/homepage.component";
+import WelcomePage from "./pages/welcomepage/welcomepage.component";
 
 // "start": "concurrently \"node auth-server/authorization_code/app.js\" \"(cd client && npm start) \"",
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { audioExsists: false };
   }
 
   render() {
     return (
       <div className="App">
-        <BrowseMusicDisplay />
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/welcome" component={WelcomePage} />
+          <PrivateRoute path="/browse" component={BrowseMusicDisplay} />
+        </Switch>
         <AudioPlayer />
       </div>
     );
   }
 }
-
-console.log("hey");
 
 const mapStateToProps = createStructuredSelector({
   currentSong: selectCurrentSong,

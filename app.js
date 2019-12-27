@@ -22,7 +22,7 @@ var redirect_uri = "https://spotadoot.herokuapp.com/callback"; // Your redirect 
 
 //redirect after authentication
 // var redirect_url = "http://localhost:8888/";
-var redirect_url = "https://spotadoot.herokuapp.com/#";
+var redirect_url = "https://spotadoot.herokuapp.com/welcome/#";
 
 /**
  * Generates a random string containing numbers and letters

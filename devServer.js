@@ -22,7 +22,7 @@ var client_secret = "e81500717cba4b69864ea3f24ed2e03d"; // Your secret
 var redirect_uri = "http://localhost:8888/callback";
 
 //redirect after authentication
-var redirect_url = "http://localhost:3000/#";
+var redirect_url = "http://localhost:3000/welcome/#";
 // var redirect_url = "https://spotadoot.herokuapp.com/
 
 /**

@@ -1,5 +1,6 @@
 import React from "react";
 import "./browse-music-display.styles.scss";
+import PropTypes from "prop-types";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 //components
@@ -30,25 +31,15 @@ class BrowseMusicDisplay extends React.Component {
       });
   }
 
-  getHashParams = () => {
-    var hashParams = {};
-    var e,
-      r = /([^&;=]+)=?([^&;]*)/g,
-      q = window.location.hash.substring(1);
-    while ((e = r.exec(q))) {
-      hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
-  };
-
   setAccessToken = async spotifyApi => {
+    const { setToken } = this.props;
     //if token is already stored
     let storedToken = window.localStorage.getItem("refreshToken");
     if (storedToken) {
       let token = await this.requestNewAccessToken(storedToken);
       spotifyApi.setAccessToken(token.access_token);
+      setToken(token.access_token);
       window.localStorage.setItem("accessToken", token.access_token);
-      // window.history.pushState({}, "", "/");
       return token.access_token;
     }
 
@@ -63,18 +54,6 @@ class BrowseMusicDisplay extends React.Component {
       window.location.origin + "/refresh_token?refresh_token=" + storedToken;
     let request_token = await fetch(request_url);
     return await request_token.json();
-  };
-
-  getTokenFromParams = spotifyApi => {
-    const params = this.getHashParams();
-    if (params.access_token) {
-      spotifyApi.setAccessToken(params.access_token);
-      window.localStorage.setItem("refreshToken", params.refresh_token);
-      window.localStorage.setItem("accessToken", params.access_token);
-      //clear tokens from url
-      window.history.pushState({}, "", "/");
-    }
-    return params.access_token;
   };
 
   render() {
@@ -107,5 +86,14 @@ class BrowseMusicDisplay extends React.Component {
     );
   }
 }
+
+BrowseMusicDisplay.propTypes = {
+  topSongs: PropTypes.array,
+  newReleases: PropTypes.array,
+  featuredPlaylists: PropTypes.array,
+  fetchMusicDisplay: PropTypes.func,
+  accessToken: PropTypes.string,
+  setToken: PropTypes.func
+};
 
 export default BrowseMusicDisplay;
