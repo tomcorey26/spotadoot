@@ -1,5 +1,10 @@
+[] should probably put authentication logic into the app component and 
+  make it into a hook
+[] when user is authenticated redirect them to the browse page if they
+  try to go to /
 [] re direct un authenticated users from pages that require auth
-[] fix problem where it redirects you back to homepage everytime you change page
+[] fix problem where pausing song is messed up (because it sends album id) 
+  and when it changes songs it doesnt update
 [] have modal that doesnt go away until user connects with spotify
 [] recall refresh token when auth token runs out
 [] create instruction gif for how to connect from spotify app
